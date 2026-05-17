@@ -1,7 +1,7 @@
-﻿using Game.Scripts.Resource.Enums;
+﻿using Game.Scripts.Materials.Enums;
 using UnityEngine;
 
-namespace Game.Scripts.Resource.ResourceData
+namespace Game.Scripts.Materials.ResourceData
 {
     [CreateAssetMenu(fileName = "ResourceInfo", menuName = "Gameplay/New ResourceInfo")]
     public class ResourceInfo : ScriptableObject

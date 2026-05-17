@@ -2,10 +2,10 @@
 using Game.Scripts.Base.Spawner;
 using UnityEngine;
 
-namespace Game.Scripts.Resource.Spawner
+namespace Game.Scripts.Materials.Spawner
 {
     [RequireComponent(typeof(ResourceDetector))]
-    public class ResourceSpawner : SpawnerBase<Resource>
+    public class ResourceSpawner : SpawnerBase<Materials.Resource>
     {
         [SerializeField] private float _delay;
         [SerializeField] [Min(1f)] private int _capacity;
@@ -39,7 +39,7 @@ namespace Game.Scripts.Resource.Spawner
         {
             Vector3 spawnPoint = _spawnCoordinates.GetSpawnPoint();
             
-            Resource entity = _entitiesPool.Get();
+            Materials.Resource entity = _entitiesPool.Get();
             
             entity.Reset(spawnPoint);
             

@@ -1,4 +1,4 @@
-﻿namespace Game.Scripts.Resource.Enums
+﻿namespace Game.Scripts.Materials.Enums
 {
     public enum ResourceType
     {

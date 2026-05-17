@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Scripts.Resource.Spawner
+namespace Game.Scripts.Materials.Spawner
 {
     public class ResourceDetector : MonoBehaviour
     {
@@ -11,20 +11,19 @@ namespace Game.Scripts.Resource.Spawner
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Resource _))
+            if (other.TryGetComponent(out Resource resource))
             {
                 _count++;
+                resource.PickedUp += OnResourcePickedUp;
                 CountChanged?.Invoke(_count);
             }
         }
-
-        private void OnTriggerExit(Collider other)
+        
+        private void OnResourcePickedUp(Resource resource)
         {
-            if (other.TryGetComponent(out Resource _))
-            {
-                _count--;
-                CountChanged?.Invoke(_count);
-            }
+            resource.PickedUp -= OnResourcePickedUp;
+            _count--;
+            CountChanged?.Invoke(_count);
         }
     }
 }
